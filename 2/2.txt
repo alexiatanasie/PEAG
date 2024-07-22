@@ -1,0 +1,35 @@
+ 2.An air transportation company wants to buy 3 types of planes, with an acquisition budget of 5000 units.
+  Each type of plane has the following features of interest:
+  a. Cost: 100 units, autonomy: 6000km, TCAS detection range: 30km.
+  b. Cost: 60 units, autonomy: 4200km, TCAS detection range: 48km.
+  c. Cost: 50 units, autonomy: 2800km, TCAS detection range: 32 km.
+   Determine how many aircrafts of each type should be bought such that
+   o Total cost is not above budget,
+    o Average autonomy is maximized,
+    o Average TCAS detection range is at least 40 km.
+    Notes: 1. if the number of planes bought from each type is denoted as a, b and c,
+    then the average autonomy is  6000∙𝑎+4200∙𝑏+2800∙𝑐 𝑎+𝑏+𝑐 average TCAS detection range is  30∙𝑎+48∙𝑏+32∙𝑐 𝑎+𝑏+𝑐 .
+    2. The problem can be solved in two versions: consider only the restriction above,
+     or consider an additional restriction that requires to spend the budget (do not leave unspent money, if they are enough to buy more planes)
+
+--the phenotype:the actual nr of palnes that they bought
+--genotype: a vector [a,b,c] where a is the nr of planes type a,
+ b the nr planes type b, c nr of planes type c
+ each gene represents the count of a specific plane
+ --solution space:all possible combinations [a,b,c] such that the total cost
+ is within the budget
+ --model:a GA to maximize thr average autonomy while TCAS range constraint is met
+ --objective function: calculate the total cost,average autonomy and TCAS;
+ maximize the average autonomy while keeping the total cost within the budget and
+  TCAS is at least 40 km
+  --single-point crossover(r_unipunct): select a random point and the elements after that point are exchanged between 2 parents
+  combine 2 parents to create new offsrping
+  --permutation isertion mutation(m_perm_inserare): select randmoly 2 points in the chromosome and move
+  the gene at the second point to immediately after first point
+  use this for better solutions
+  --parent selection: torunament selection(s_turneu2): select randomly pairs of individuals from the popualtion
+  and choose the better one from each pair.
+  better individuals have a higher chance to be selected
+  --elitist selection for next geneartion(s_elitista): the best individual from the current population is carried
+  over the next population ; quality solution doesn't decrease over generations
+  --termination condition: the algorithm turns a fixed nr of generations whcih is specified by the user
