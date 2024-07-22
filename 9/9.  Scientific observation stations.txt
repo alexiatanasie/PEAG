@@ -1,0 +1,24 @@
+9.  Scientific observation stations are to be set up on n virgin islands of X archipelago.
+ Distances between the islands are given as a weight matrix (D(i,j) = distance between islands i and j).
+  A shipping company distributes supplies to the observation stations and decides that for optimal operation is needs
+  to set up 3 warehouses on 3 different islands of the n it supplies.
+  The islands will be supplied form the closest warehouse.
+  Use a genetic algorithm to choose the 3 islands where the warehouses must be built,
+   such that the total distance between warehouses and the islands served is minimized.
+
+--the genotype is a permutation of 3 unique integers from the range [0,n) where n is the number of islands. the restriction is that we cannot host more than one warehouse. the solution space is a possible combination of all possible combinations of 3 unique integers from [0,n).
+
+--the objective function calculates the distances between the islands and their closest warehouses. the sum of the minimum distances between them should be minimized.
+
+--crossover: use one-point crossover operator(r_unipunct), where we chose a random point and the genes after that point are swapped between 2 parents. 
+
+--mutation: we use swap mutation(m_perm_schimb) for permutations, chose 2 random positions and swap their values.  
+
+--selection(s_ruleta_SUS,d_FPS_ss):
+--parent selection: roulette wheel selection with sigma where the selected individual is proportional to its fitness. 
+the fitness is calculating using the fitness function and sigma scaling for uniform selection probability. 
+
+
+--selection for next generation: elitist selection where the best individual is copied to the next generation. the best solution is found. 
+
+--termination condition is a fixed number of generations. the algorithm stops after we find a nr of generations and the best solution is returned. 
