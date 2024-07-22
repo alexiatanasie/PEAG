@@ -1,0 +1,25 @@
+3.
+At the beginning of the university year a student must chose some courses.
+The available budget is 10000 units and three types of courses are available:
+ a. Cost: 1000 units, credit points: 5, individual study required: 80 hours;
+  b. Cost: 800 units, credit points: 3, individual study hours required: 40 hours;
+  c. Cost: 1500 units, credit points: 8, individual study hours required: 100 hours.
+   Use a genetic algorithm to help the student choose a combination of course (how many of each type) such that it fits within the available budget,
+    maximizes the average number of credits and the average individual study hours is at most 70.
+     Note: average number of credits per course and average number of study hours per course are computed as weighted average
+
+ --genotype: each chromosome is represented as a vector of 3 integers,each integer
+ represents the nr of courses of type:a,b,c.
+ --phenotype is derived from genotype, where each chromosome's integer values correspond to
+ the nr of courses for each type
+ --solution space: all possible combinations where the sum of the elements doesn't exceed the budget
+ and each element represents the nr of courses for each type.
+ --model:use GA to find the combination of the courses that maximize the average nr of credits while
+ the average individual study hours < 70
+ --objective function:maximize the average nr of credits while penalizing
+ the sol that > 70 (constraint)
+--multipoint crossover operator(r_multipunct):exchange genetic material between 2 parents
+--integer mutation operator using drift (m_int_fluaj) : allow small changes in the nr of courses taken for each type
+--parent selection:roulette wheel : select parents based on their fitness
+--next generation(elitist selection) : the best chromosomes are preserved in the next generation
+--termination condition: nr of iteration and the algorithm return the final population
