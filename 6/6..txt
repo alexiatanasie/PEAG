@@ -1,0 +1,14 @@
+6.
+ Space mining company MinAstero operates 5 mining sites on the asteroid belt between Mars and Jupiter, at huge distances from each other. The company owns n space cargo ships of various types that must carry the minerals from asteroids to Terra. Each ship has a maximum transported mass limit. Due to huge distances in space, each ship will serve only one mining site. Use a genetic algorithm to assign each ship to a mining site, such that the total transport capacity is as evenly as possible distributed between the 5 asteroids. Maximum masses for each ship can be read from a text file.  
+
+--phenotype:assignment of each ship to a mining site
+--genotype: binary representation where each gene represents 
+--objective function: minimize the variance of transported mass among the sites
+--crossover: generate offspring 
+--swap mutation operator: swaps 2 positions in the permutation to explore the new solutions
+--selection(s_ruleta_SUS,d_FPS_ss):
+--parent selection: roulette wheel selection with sigma where the selected individual is proportional to its fitness. 
+the fitness is calculating using the fitness function and sigma scaling for uniform selection probability. 
+--selection for next generation: elitist selection where the best individual is copied to the next generation. 
+the best solution is found. 
+--termination condition: the algorithm stops when the max nr of generations is reached 
