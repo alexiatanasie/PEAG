@@ -1,0 +1,22 @@
+7.
+ A factory packs dehydrated fruits to be sold in stores. The raw materials used are: figs, pineapple, dates, cranberry. The available quantities of each raw material are, in order: 100, 80, 120, 50 kg. The factory packs the following combinations, in 200g packs:  - Combination 1: 30% figs, 25% pineapple, 25% dates, 20% cranberries; - - Combination 2: 75% dates, 25% figs; Combination 3: 25% figs, 25% pineapple, 25% dates, 25% cranberries;
+Combination 4: 100% dates; Combination 5: 100% figs. The profits brought by each type of pack are, in order: 20, 10, 15, 12, 5 units per pack. Use a genetic algorithm to decide how many packs of each type should be produced to maximize the profit.
+
+--genotype representation represents a possible combination of packs to be produced.
+--phenotype representation: combination of packs to be produced based on the genotype. each element represents the quantity of packs of a specific type.
+--there are restrictions Combination 1 must not exceed 30% of 100 kg, 25% of 80...combination2....
+--solution space: all possible combinations of pack quantities , subject to the constraints imposed by the available raw materials
+--model used: combinatorial optimization problem using a genetic algorithm
+the genotype represents the solution space and the phenotype represents the actual combination of packs
+--objective function: maximizing the profit ensures that the factory produces the most profitable combination of packs given the available raw materials and pack combinations.
+
+--crossover(one-point) exchange genetic material between individuals. have different combinations of pack quantities.
+--mutation (m_inr_ra): introduce random changes to integers changes in the genes
+pm-probability
+
+--selection(s_ruleta_SUS,d_FPS_ss):
+--parent selection: roulette wheel selection with sigma where the selected individual is proportional to its fitness. 
+the fitness is calculating using the fitness function and sigma scaling for uniform selection probability. 
+
+--selection for next generation: elitist selection where the best individual is copied to the next generation. the best solution is found. 
+--termination condition:the alg stops whnen we find the max nr of generations 
