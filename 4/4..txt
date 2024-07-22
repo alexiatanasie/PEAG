@@ -1,0 +1,24 @@
+4.
+A product P is produced in 2 factories (București and Craiova) and is stored for distribution in 3 warehouses (Ploiești, Pitești and Cluj).
+The factory in București can produce 120 tons per week and the factory in Craiova can produce 140 tons per week.
+The warehouses need the following quantities each week: Ploiești needs 100 tons, Pitești needs 60 tons and Cluj needs 80 tons.
+
+--the genotype represents the solution space of the pb; how many tons of the product should
+be supplied from each factory to each warehouse
+there are 2 factories:Bucuresti and Craiova and 3 warehouses:Ploiesti,Cluj,Pitesti.
+each factory can produce a certain amount of tons per week
+--phenotype: the quantities of the product supplied from each factory tom each warehouse.
+--solution space:all possible combinations of tons of the product supplied from each factory to
+each warehouse.constraints:  the total supplied from the each factory does not exceed its production
+capacity and the total demnad of each warehouse is satisfied.
+--objective function : minimize the total transport cost by finding the best allocation
+of tons of the product from factories to warehouses. it calculates the total cost for a given
+allocation of tons and returns the inverse of the cost as the fitness value.
+higher fitness value correspond to lower cost
+--crossover(single point)(r_unipunct):create offsprings that inherit some characteristics from both parents
+--mutation operator for resetting integers randomly(m_int_ra): change some elements(tons) in a solution to generate
+a new solution
+--parents selection(s_ruleta_SUS): solutions with higher fitness values are selected as parnets to contribute for next generation
+--next generation selection(d_FPS_ss): use a selection method with sigma scaling(FPS with sigma scaling) for selecting the next generation
+higenr fitness values are more likely to be preserved and improve quality
+--termination condition: GA stops iterating and the best solution is found.
