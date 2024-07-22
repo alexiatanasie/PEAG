@@ -1,0 +1,23 @@
+1. The N city-states of ancient Greece fight each other for domination,
+ but when faced with a greater external threat they decide to unite.
+ In order to establish a defense plan, delegates form all cities must meet.
+  Each city will send only 1 ambassador.
+  Knowing the historic rivalries between cities,
+  use a genetic algorithm to find a way to seat the ambassadors around the negotiation table such
+  that rival cities ambassadors are not next to each other (assuming this is possible).
+   The map of rivalries is described through a square matrix of size N,
+   called CONFLICT: 𝐶𝑂𝑁𝐹𝐿𝐼𝐶𝑇(𝑖,𝑗) = { 0,𝑖𝑓 𝑐𝑖𝑡𝑖𝑒𝑠 𝑖 𝑎𝑛𝑑 𝑗 𝑎𝑟𝑒 𝑛𝑜𝑡 𝑖𝑛 𝑐𝑜𝑛𝑓𝑙𝑖𝑐𝑡 𝑜𝑟 𝑖 = 𝑗 1, 𝑖𝑓 𝑐𝑖𝑡𝑦 𝑖 𝑖𝑠 𝑖𝑛 𝑐𝑜𝑛𝑓𝑙𝑖𝑐𝑡 𝑤𝑖𝑡ℎ 𝑐𝑖𝑡𝑦 𝑗
+
+--the genotype is the permutation of the list of the cities
+  the phenotype: seating arrangement of ambassadors around the table
+  each ambassador is represented by their city index
+ --solution space:all permutations of N city indices
+ --model:a genetic algorithm to explore permutations to minimize rivals
+ --objective function:fct evaluates the seating arranjement by summing up the conflicts
+ for each pair of cities using CONFLICT matrix
+ --crossover OCX(r_OCX,OCX) : valid permutations using the order of the elements
+ --swap mutation (m_perm_schimb) :select randomly 2 positions in the permutation and swap them
+ --parent selection (s_turneu) :tournament selection:select the best individual randomly from the population
+ --next generation selection (s_elitista) using elitist selection: the best individuals are carried over to the next generation
+ --termination condition:a solution with 0 conflicts is found or the max nr of generations is reached
+  
