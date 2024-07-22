@@ -1,0 +1,20 @@
+8.
+A university organizes a scientific expedition by sea to visit some virgin islands in X archipelago, starting from one port of the archipelago and returning to the same port. The ship cannot be supplied during voyage. The available resources on board allow visits to only n islands from 1000 islands that form the archipelago n<<1000) and a total travel distance of k km. use a genetic algorithm to chose the islands to be visited and the order to visit them. It is preferred to visit islands as far away as possible. The distances between islands (including the home port) are given as a weight matrix in a text file, where D(i,j) = distance between islands i and j. 
+
+--genotype represents a possible solution to the problem consisting of a binary vector indicating which islands are visited(1) or not (0)
+--phenotype represents the actual islands visited and the other in which they are visited 
+--restrictions: limited resources onboard allow visits to only a subset of islands; 
+the total travel distance should not exceed a given threshold
+the ship must start and end at the same port
+--all possible combinations of islands to visit, constrained by limited nr of islands that can be visited and the total travel distance
+--model used:GA for searching the solution space for optimal sol
+--objective function: maximize the total travel distance while visitng a limited nr of islands.
+--higher fitness function indicates better solutions
+--order crossover to combine genetic material form 2 parents to generate new offspring
+--integer random reset mutation (m_int_ra):
+--selection(s_ruleta_SUS,d_FPS_ss):
+--parent selection: roulette wheel selection with sigma where the selected individual is proportional to its fitness. 
+the fitness is calculating using the fitness function and sigma scaling for uniform selection probability. 
+
+--selection for next generation: elitist selection where the best individual is copied to the next generation. the best solution is found. 
+--termination condition: reach the max nr of generations , fitness improvement and satisfactory solution
