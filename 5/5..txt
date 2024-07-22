@@ -1,0 +1,25 @@
+5.
+In order to supply areas in distress with basic supplies, a humanitarian convoy is formed as a train with n cars.
+ The train will go through each area and unload supplies.
+  supplies are packed in m special containers (m>>n).
+  The mass for each container is known (can be read from a text file).
+   Use a genetic algorithm to find a way to distribute the containers into cars so that the mas is distributed
+   as evenly as possible. There is no upper mass limit for cars.
+
+   --genotype: represent each solution(distribution of containers into cars) as a list of length m
+   where each element represents the index of the car to which the corresponding container is assigned
+   --phenotype: the distribution of the containers
+   --solution space: each element can take values from 0 to n-1, where n is the nr of cars
+   --model: a permutation problem, find the best permutation of containers into cars to minimize the mass imbalance
+   --objective function: variance of the mass distribution among cars
+   -- crossoer(CX)(cicluri) to generate offspring sol from selected parents
+   --mutation: random swappping of containers between cars or randomly reassigning containers to different cars
+   
+    --selection(s_ruleta_SUS,d_FPS_ss):
+--parent selection: roulette wheel selection with sigma where the selected individual is proportional to its fitness. 
+the fitness is calculating using the fitness function and sigma scaling for uniform selection probability. 
+--selection for next generation: elitist selection where the best individual is copied to the next generation.
+ the best solution is found. 
+ 
+ --the termination condition could be the max nr of generations reached . the algorithm stops when the satisfactory solution is found.
+ 
